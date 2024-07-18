@@ -5,6 +5,9 @@
 import * as Sentry from "@sentry/nextjs";
 
 Sentry.init({
+  ignoreErrors: [
+    "Something went wrong"
+  ],
   dsn: "https://e7d64d53dcc609063a613d104d8389c7@o4507620183638016.ingest.de.sentry.io/4507620194582608",
 
   // Adjust this value in production, or use tracesSampler for greater control
