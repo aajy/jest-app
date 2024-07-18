@@ -1,7 +1,7 @@
 "use client";
 
 import Head from "next/head";
-// import * as Sentry from "@sentry/nextjs";
+import * as Sentry from "@sentry/nextjs";
 
 export default function Page() {
   return (
@@ -48,22 +48,22 @@ export default function Page() {
             fontSize: "14px",
             margin: "18px",
           }}
-          // onClick={async () => {
-          //   await Sentry.startSpan({
-          //     name: 'Example Frontend Span',
-          //     op: 'test'
-          //   }, async () => {
-          //     const res = await fetch("/api/sentry-example-api");
-          //     if (!res.ok) {
-          //       throw new Error("Sentry Example Frontend Error");
-          //     }
-          //   });
-          // }}
+          onClick={async () => {
+            await Sentry.startSpan({
+              name: 'Example Frontend Span',
+              op: 'test'
+            }, async () => {
+              const res = await fetch("/api/sentry-example-api");
+              if (!res.ok) {
+                throw new Error("Sentry Example Frontend Error");
+              }
+            });
+          }}
         >
           Throw error!
         </button>
 
-        {/* <p>
+        <p>
           Next, look for the error on the{" "}
           <a href="https://test-eic.sentry.io/issues/?project=4507620194582608">Issues Page</a>.
         </p>
@@ -72,7 +72,7 @@ export default function Page() {
           <a href="https://docs.sentry.io/platforms/javascript/guides/nextjs/">
             https://docs.sentry.io/platforms/javascript/guides/nextjs/
           </a>
-        </p> */}
+        </p>
       </main>
     </div>
   );
