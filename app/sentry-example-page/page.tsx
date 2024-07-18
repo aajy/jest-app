@@ -58,6 +58,7 @@ export default function Page() {
                 throw new Error("Sentry Example Frontend Error");
               }
             });
+            Sentry.captureMessage("Something went wrong", "error");
           }}
         >
           Throw error!
